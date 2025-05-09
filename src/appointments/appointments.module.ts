@@ -5,9 +5,11 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Appointment } from './models/appointment.model';
 import { DoctorsModule } from '../doctors/doctors.module';
 import { PatientsModule } from '../patients/patients.module';
+import { MailService } from '../mail/mail.service';
+import { MailModule } from '../mail/mail.module';
 
 @Module({
-  imports:[SequelizeModule.forFeature([Appointment]), DoctorsModule, PatientsModule],
+  imports:[SequelizeModule.forFeature([Appointment]), DoctorsModule, PatientsModule, MailModule],
   controllers: [AppointmentsController],
   providers: [AppointmentsService],
   exports:[AppointmentsService]

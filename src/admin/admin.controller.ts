@@ -28,9 +28,8 @@ export class AdminController {
   activateUser(@Param("link") link: string) {
     return this.adminService.activateAdmin(link);
   }
-  @UseGuards(JwtAuthGuard,RolesGuard)
+  @UseGuards(JwtAuthGuard,RolesGuard,JwtSelfGuard)
   @Roles("superadmin", "admin")
-  @UseGuards(JwtSelfGuard)
   @Get(':id') 
   findOne(@Param('id') id: string) {
     return this.adminService.findOne(+id);
@@ -40,7 +39,8 @@ export class AdminController {
   update(@Param('id') id: string, @Body() updateAdminDto: UpdateAdminDto) {
     return this.adminService.update(+id, updateAdminDto);
   }
-
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles("superadmin")
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.adminService.remove(+id);

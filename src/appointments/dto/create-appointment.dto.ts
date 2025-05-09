@@ -22,9 +22,7 @@ export class CreateAppointmentDto {
     example: 'pending',
     description: "Uchrashuv holati (masalan: pending, approved, cancelled)",
   })
-  @IsString({ message: 'status matn bo‘lishi kerak' })
-  @IsNotEmpty({ message: 'status bo‘sh bo‘lmasligi kerak' })
-  status: string;
+  status: boolean;
 
   @ApiProperty({
     example: 'Qorindagi og‘riq uchun maslahat',
@@ -33,4 +31,7 @@ export class CreateAppointmentDto {
   @IsString({ message: 'purpose matn bo‘lishi kerak' })
   @IsNotEmpty({ message: 'purpose bo‘sh bo‘lmasligi kerak' })
   purpose: string;
+
+  confirmation_link:string
+
 }

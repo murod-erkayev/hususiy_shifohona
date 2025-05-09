@@ -87,4 +87,5 @@ export class AdminService {
     const admin = await this.adminModel.update({hashed_refresh_token}, {where:{id}})
     return admin
   }
+
 }

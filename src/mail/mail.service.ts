@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { Admin } from '../admin/models/admin.model';
 import { Doctor } from '../doctors/models/doctor.entity';
 import { Patient } from '../patients/models/patient.model';
+import { Appointment } from '../appointments/models/appointment.model';
 
 @Injectable()
 export class MailService {
@@ -49,4 +50,20 @@ export class MailService {
              }, 
         });
     }
+async sendMailDoctorAppointment(doctor: Doctor, appointment: Appointment, patient: Patient) {
+    const url = `${process.env.API_HOST}/api/appointments/confirm/${appointment.confirmation_link}`;
+    console.log(url);
+
+    await this.mailerSerivce.sendMail({
+      to: doctor.email,
+      subject: 'New Appointment Request',
+      template: './appointment_confirmation', // Yangi shablon
+      context: {
+        doctorName: doctor.full_name,
+        patientName: patient.full_name,
+        purpose: appointment.purpose,
+        url,
+      },
+    });
+  }
 }

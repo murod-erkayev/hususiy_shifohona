@@ -102,4 +102,7 @@ export class DoctorsService {
       is_activate:updateDoctor[1][0].is_active
     }
   }
+  async updateStatusApointment(status:string){
+    
+  }
 }

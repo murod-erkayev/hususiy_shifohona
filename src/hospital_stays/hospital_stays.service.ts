@@ -8,6 +8,7 @@ import { HospitalStay } from './models/hospital_stay.model';
 export class HospitalStaysService {
   constructor(@InjectModel(HospitalStay) private readonly hospitalStay:typeof HospitalStay) {}
   create(createHospitalStayDto: CreateHospitalStayDto) {
+    return this.hospitalStay.create(createHospitalStayDto)
   }
 
   findAll() {

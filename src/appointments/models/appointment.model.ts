@@ -13,8 +13,10 @@ import { Patient } from '../../patients/models/patient.model';
 interface IAppointmentCreationAttr {
   doctorId: number;
   patientId: number;
-  status: string;
+  status: boolean;
   purpose: string; 
+  confirmation_link:string
+
 }
 
 @Table({ tableName: 'appointments' })
@@ -47,14 +49,21 @@ export class Appointment extends Model<Appointment, IAppointmentCreationAttr> {
   patient: Patient;
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.BOOLEAN,
     allowNull: false,
   })
-  declare status: string;
+  declare status: boolean;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
   declare purpose: string;
+
+  @Column({
+    type:DataType.STRING,
+    defaultValue:DataType.UUIDV4()
+  })
+  declare confirmation_link:string
+
 }

@@ -40,4 +40,5 @@ export class CreateAdminDto {
   role: string;
 
   is_active:boolean
+
 }
