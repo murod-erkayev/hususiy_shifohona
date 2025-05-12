@@ -22,9 +22,9 @@ export class Review extends Model<Review, IreviewCreationAttr> {
         allowNull:false
     })
     declare doctorId:number
+
     @BelongsTo(()=>Doctor)
     doctor:Doctor
-
 
     @ForeignKey(()=>Patient)
     @Column({
@@ -32,6 +32,7 @@ export class Review extends Model<Review, IreviewCreationAttr> {
         allowNull:false
     })
     declare patientId:number
+
     @BelongsTo(()=>Patient)
     patient:Patient
 

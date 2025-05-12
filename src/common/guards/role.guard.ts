@@ -20,7 +20,6 @@ export class RolesGuard implements CanActivate {
     if (!requiredRoles) {
       return true;
     }
-
     const request = context.switchToHttp().getRequest();
     const user = request.user;
     if (!user) {
@@ -29,7 +28,6 @@ export class RolesGuard implements CanActivate {
     if (!requiredRoles.includes(user.role)) {
       throw new ForbiddenException(`Bu amal uchun ruxsat yo‘q: ${user.role}`);
     }
-
     return true;
   }
 }

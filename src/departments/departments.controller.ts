@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { DepartmentsService } from './departments.service';
 import { CreateDepartmentDto } from './dto/create-department.dto';
 import { UpdateDepartmentDto } from './dto/update-department.dto';
-import { JwtAuthGuard } from '../common/guards/user.guard';
+import { JwtAuthGuard } from '../common/guards/auth.guard';
 import { Roles } from '../common/decorators/role.decorator';
 import { RolesGuard } from '../common/guards/role.guard';
 

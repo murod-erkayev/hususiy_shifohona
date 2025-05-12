@@ -3,7 +3,7 @@ import { DoctorsService } from './doctors.service';
 import { CreateDoctorDto } from './dto/create-doctor.dto';
 import { UpdateDoctorDto } from './dto/update-doctor.dto';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody, ApiParam } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../common/guards/user.guard';
+import { JwtAuthGuard } from '../common/guards/auth.guard';
 import { RolesGuard } from '../common/guards/role.guard';
 import { JwtSelfGuard } from '../common/guards/self.guard';
 import { Roles } from '../common/decorators/role.decorator';

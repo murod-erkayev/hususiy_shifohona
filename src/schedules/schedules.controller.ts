@@ -3,7 +3,7 @@ import { SchedulesService } from './schedules.service';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { UpdateScheduleDto } from './dto/update-schedule.dto';
 import { RolesGuard } from '../common/guards/role.guard';
-import { JwtAuthGuard } from '../common/guards/user.guard';
+import { JwtAuthGuard } from '../common/guards/auth.guard';
 import { Roles } from '../common/decorators/role.decorator';
 
 @Controller('schedules')

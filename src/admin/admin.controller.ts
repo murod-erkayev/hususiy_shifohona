@@ -3,9 +3,9 @@ import { AdminService } from './admin.service';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
 import { Roles } from '../common/decorators/role.decorator';
-import { JwtAuthGuard } from '../common/guards/user.guard';
 import { RolesGuard } from '../common/guards/role.guard';
 import { JwtSelfGuard } from '../common/guards/self.guard';
+import { JwtAuthGuard } from '../common/guards/user.guard';
 
 @Controller('admin')
 export class AdminController {

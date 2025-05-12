@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { HospitalStaysService } from './hospital_stays.service';
 import { CreateHospitalStayDto } from './dto/create-hospital_stay.dto';
 import { UpdateHospitalStayDto } from './dto/update-hospital_stay.dto';
-import { JwtAuthGuard } from '../common/guards/user.guard';
+import { JwtAuthGuard } from '../common/guards/auth.guard';
 import { RolesGuard } from '../common/guards/role.guard';
 import { Roles } from '../common/decorators/role.decorator';
 

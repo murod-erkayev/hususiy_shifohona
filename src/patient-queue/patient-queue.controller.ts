@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { PatientQueueService } from './patient-queue.service';
 import { CreatePatientQueueDto } from './dto/create-patient-queue.dto';
 import { UpdatePatientQueueDto } from './dto/update-patient-queue.dto';
-import { JwtAuthGuard } from '../common/guards/user.guard';
+import { JwtAuthGuard } from '../common/guards/auth.guard';
 import { RolesGuard } from '../common/guards/role.guard';
 import { Roles } from '../common/decorators/role.decorator';
 
