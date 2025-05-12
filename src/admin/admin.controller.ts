@@ -10,15 +10,15 @@ import { JwtAuthGuard } from '../common/guards/user.guard';
 @Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
-  @UseGuards(JwtAuthGuard,RolesGuard)
-  @Roles("superadmin")
+  // @UseGuards(JwtAuthGuard,RolesGuard)
+  // @Roles("superadmin")
   @Post()
   create(@Body() createAdminDto: CreateAdminDto) {
     return this.adminService.create(createAdminDto);
   }
 
-  @UseGuards(JwtAuthGuard,RolesGuard)
-  @Roles("superadmin")
+  // @UseGuards(JwtAuthGuard,RolesGuard)
+  // @Roles("superadmin")
   @Get()
   findAll() {
     return this.adminService.findAll();
@@ -39,8 +39,8 @@ export class AdminController {
   update(@Param('id') id: string, @Body() updateAdminDto: UpdateAdminDto) {
     return this.adminService.update(+id, updateAdminDto);
   }
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles("superadmin")
+  // @UseGuards(JwtAuthGuard, RolesGuard)
+  // @Roles("superadmin")
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.adminService.remove(+id);

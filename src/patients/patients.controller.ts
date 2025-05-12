@@ -13,10 +13,10 @@ import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
 import { PatientsService } from './patients.service';
 import { CreatePatientDto } from './dto/create-patient.dto';
 import { UpdatePatientDto } from './dto/update-patient.dto';
-import { JwtAuthGuard } from '../common/guards/auth.guard';
 import { RolesGuard } from '../common/guards/role.guard';
 import { Roles } from '../common/decorators/role.decorator';
 import { JwtSelfGuard } from '../common/guards/self.guard';
+import { JwtAuthGuard } from '../common/guards/user.guard';
 
 @ApiTags('Patients')
 @Controller('patients')

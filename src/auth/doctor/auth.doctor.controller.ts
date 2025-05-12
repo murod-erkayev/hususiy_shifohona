@@ -4,9 +4,9 @@ import { Response } from 'express';
 import { CookieGetter } from '../../common/decorators/cookie-getter.decorator';
 import { CreateDoctorDto } from '../../doctors/dto/create-doctor.dto';
 import { AuthDoctrService } from './auth.doctor.service';
-import { JwtAuthGuard } from '../../common/guards/auth.guard';
 import { RolesGuard } from '../../common/guards/role.guard';
 import { Roles } from '../../common/decorators/role.decorator';
+import { JwtAuthGuard } from '../../common/guards/user.guard';
 
 @Controller('auth_Admin')
 export class AuthDoctorController {

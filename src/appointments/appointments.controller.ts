@@ -3,7 +3,7 @@ import { Response } from 'express';
 import { AppointmentsService } from './appointments.service';
 import { CreateAppointmentDto } from './dto/create-appointment.dto';
 import { UpdateAppointmentDto } from './dto/update-appointment.dto';
-import { JwtAuthGuard } from '../common/guards/auth.guard';
+import { JwtAuthGuard } from '../common/guards/user.guard';
 import { RolesGuard } from '../common/guards/role.guard';
 import { Roles } from '../common/decorators/role.decorator';
 
@@ -11,22 +11,18 @@ import { Roles } from '../common/decorators/role.decorator';
 export class AppointmentsController {
   constructor(private readonly appointmentsService: AppointmentsService) {}
 
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('admin', 'superadmin', 'doctor')
   @Post()
   create(@Body() createAppointmentDto: CreateAppointmentDto) {
     return this.appointmentsService.create(createAppointmentDto);
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('admin', 'superadmin')
+  @Roles('admin', 'superadmin', "doctor")
   @Get()
   findAll() {
     return this.appointmentsService.findAll();
   }
 
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('admin', 'superadmin', 'doctor')
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.appointmentsService.findOne(+id);
